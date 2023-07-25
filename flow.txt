@@ -1,0 +1,22 @@
+1. Box Score Prep - prepare box score data and append data
+
+2. Player Similarity - Run processing of columns, Z scores and normalization. KMeans and assign labels per player
+
+3. convert lineup to id - take all lineups and convert them to labels and aggregate
+
+4. Lineup ranking - Take a set of N players , create permutations of them, and join with the (3) agg table. find best sets
+
+ --- 5. get recommendation of time to play lineup
+     -- MMM to understand the different contributions
+     -- look at a specific team and create df of line per game, having all columns as lineups , values as minutes on court \ porportion on court, and Y variable of either win/loss , points scored , point diff final score
+     -- consider changing lineups to clusters to reduce dimension and pool all teams together
+     -- review results
+     
+     
+     
+todo:
+install orbit model
+run linear regression : per game: Total plus minus of game ~ Sigma(Minutes_per_cluster(i)) 
+per each coefficient , we expect to see the contribution in terms of plus minus of that lineup. 
+generate simulator to optimize sets of lineups
+
