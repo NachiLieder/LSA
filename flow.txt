@@ -1,10 +1,13 @@
 1. Box Score Prep - prepare box score data and append data
 
 2. Player Similarity - Run processing of columns, Z scores and normalization. KMeans and assign labels per player
+The labels will represent the style of the player and reduce the pronlem from N players to K clusters.
 
 3. convert lineup to id - take all lineups and convert them to labels and aggregate
+each lineup per possession will be represented by the 5 players on the court. a-b-c-d-e according to thier cluster label.
 
 4. Lineup ranking - Take a set of N players , create permutations of them, and join with the (3) agg table. find best sets
+The best would be defined by Plus/Minus	
 
  --- 5. get recommendation of time to play lineup
      -- MMM to understand the different contributions
@@ -20,3 +23,10 @@ run linear regression : per game: Total plus minus of game ~ Sigma(Minutes_per_c
 per each coefficient , we expect to see the contribution in terms of plus minus of that lineup. 
 generate simulator to optimize sets of lineups
 
+
+intuition - given a set of N lineups , can we predict better than the baseline? assumption is that if we can , we can optimize the process by maximizing the split of possessions / minutes.
+
+steps to optimization:
+a. per dataset of X,y generate a model that runs y~ /beta_x *transformed(X,tau)
+    find the set of taus that optimize the regression
+b. given we have the optimized set of taus , filter a set of 
